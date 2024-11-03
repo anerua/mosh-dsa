@@ -1,8 +1,8 @@
 import Array.Array;
 import LinkedList.LinkedList;
 import LinkedList.Node;
+import Stack.StringReverser;
 import java.util.Arrays;
-import java.util.Stack;
 
 public class App {
 
@@ -56,37 +56,20 @@ public class App {
         System.out.println(linkedList.indexOf(3));
     }
 
-    public String stackReverseStringExample(String str) {
-        if (str == null)
-            throw new IllegalArgumentException();
-
-        var stack = new Stack<Character>();
-        for (int i = 0; i < str.length(); i++)
-            stack.push(str.charAt(i));
-        
-        // My implementation
-        // String reversed = "";
-        // while (!stack.empty())
-        //     reversed += stack.pop();
-
-        // Mosh
-        var reversed = new StringBuilder();
-        while (!stack.empty())
-            reversed.append(stack.pop());
-
-        return reversed.toString();
+    public void runStack() {
+        // Reverse a string
+        String text = "ABCDEFG";
+        var reverser = new StringReverser();
+        String reversed = reverser.reverse(text);
+        System.out.println(reversed);
     }
 
     public static void main(String[] args) throws Exception {
         App app = new App();
-        
+
         // app.runArray();
         // app.runNode();
         // app.runLinkedList();
-
-        // Reverse a string
-        String text = "ABCDEFG";
-        String reversed = app.stackReverseStringExample(text);
-        System.out.println(reversed);
+        app.runStack();
     }
 }
