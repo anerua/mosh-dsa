@@ -1,6 +1,7 @@
 import Array.Array;
 import LinkedList.LinkedList;
 import LinkedList.Node;
+import Queue.ArrayQueue;
 import Stack.Stack;
 import java.util.Arrays;
 
@@ -82,12 +83,57 @@ public class App {
         System.out.println(stack.peek());
     }
 
+    public void runQueue() {
+        // Reversing a Queue
+        // Queue<Integer> queue = new ArrayDeque<>();
+        // queue.add(10);
+        // queue.add(20);
+        // queue.add(30);
+        // System.out.println(queue);
+        // var reverser = new QueueReverser();
+        // Queue<Integer> reversed = reverser.reverse(queue);
+        // System.out.println(reversed);
+
+        // Building a Queue with an Array
+        var queue = new ArrayQueue(5);
+        System.out.println(queue.isEmpty());
+        System.out.println(queue.isFull());
+        queue.enqueue(10);
+        queue.enqueue(20);
+        queue.enqueue(30);
+        queue.enqueue(40);
+        queue.enqueue(50);
+        System.out.println(queue);
+        queue.dequeue();
+        System.out.println(queue.peek());
+        queue.enqueue(60);
+        System.out.println(queue);
+        queue.dequeue();
+        System.out.println(queue.peek());
+        queue.enqueue(70);
+        System.out.println(queue);
+        queue.dequeue();
+        queue.enqueue(80);
+        queue.dequeue();
+        System.out.println(queue);
+        System.out.println(queue.peek());
+        queue.dequeue();
+        queue.dequeue();
+        System.out.println(queue);
+        System.out.println(queue.peek());
+        queue.dequeue();
+        queue.dequeue();
+        System.out.println(queue.isEmpty());
+        System.out.println(queue.isFull());
+    }
+
     public static void main(String[] args) throws Exception {
         App app = new App();
 
         // app.runArray();
         // app.runNode();
         // app.runLinkedList();
-        app.runStack();
+        // app.runStack();
+        app.runQueue();
     }
 }
