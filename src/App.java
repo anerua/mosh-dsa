@@ -1,7 +1,7 @@
 import Array.Array;
 import LinkedList.LinkedList;
 import LinkedList.Node;
-import Stack.SyntaxChecker;
+import Stack.Stack;
 import java.util.Arrays;
 
 public class App {
@@ -64,9 +64,22 @@ public class App {
         // System.out.println(reversed);
 
         // Balanced Expressions
-        String expression = "(())()<[(>])";
-        var checker = new SyntaxChecker();
-        System.out.println(checker.checker(expression));
+        // String expression = "(())()<[(>])";
+        // var checker = new SyntaxChecker();
+        // System.out.println(checker.checker(expression));
+
+        // Building a Stack with an Array
+        var stack = new Stack();
+        stack.push(1);
+        stack.push(2);
+        System.out.println(stack.isEmpty());
+        System.out.println(stack.peek());
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+        System.out.println(stack.isEmpty());
+        stack.push(3);
+        stack.push(4);
+        System.out.println(stack.peek());
     }
 
     public static void main(String[] args) throws Exception {
