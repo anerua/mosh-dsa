@@ -1,7 +1,7 @@
 import Array.Array;
 import LinkedList.LinkedList;
 import LinkedList.Node;
-import Stack.StringReverser;
+import Stack.SyntaxChecker;
 import java.util.Arrays;
 
 public class App {
@@ -58,10 +58,15 @@ public class App {
 
     public void runStack() {
         // Reverse a string
-        String text = "ABCDEFG";
-        var reverser = new StringReverser();
-        String reversed = reverser.reverse(text);
-        System.out.println(reversed);
+        // String text = "ABCDEFG";
+        // var reverser = new StringReverser();
+        // String reversed = reverser.reverse(text);
+        // System.out.println(reversed);
+
+        // Balanced Expressions
+        String expression = "(())()<[(>])";
+        var checker = new SyntaxChecker();
+        System.out.println(checker.checker(expression));
     }
 
     public static void main(String[] args) throws Exception {
