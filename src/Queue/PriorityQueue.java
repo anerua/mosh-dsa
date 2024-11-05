@@ -2,24 +2,45 @@ package Queue;
 
 import java.util.Arrays;
 
-public class ArrayQueue {
+public class PriorityQueue {
 
     private final int[] queue;
     private int front;
     private int back;
     private int size;
 
-    public ArrayQueue(int capacity) {
+    public PriorityQueue(int capacity) {
         queue = new int[capacity];
     }
 
     public void enqueue(int item) {
         if (isFull()) throw new IllegalStateException();
 
-        queue[back++] = item;
+        int index = back;
+        int counter = 0;
+        while (counter <= size) {
+            if (index == front) {
+                queue[index] = item;
+                break;
+            }
 
-        back = back % queue.length;
-        
+            int focus = (index - 1);
+            if (focus < 0) focus = queue.length - 1;
+            
+            if (item < queue[focus]) {
+                queue[index] = queue[focus];
+                --index;
+                if (index < 0) index = queue.length - 1;
+            } else {
+                queue[index] = item;
+                break;
+            }
+
+            ++counter;
+        }
+
+        back = (back + 1) % queue.length;
+
         size++;
     }
 
@@ -29,7 +50,7 @@ public class ArrayQueue {
         int item = queue[front++];
 
         front = front % queue.length;
-
+        
         size--;
         
         return item;
@@ -53,4 +74,5 @@ public class ArrayQueue {
     public String toString() {
         return Arrays.toString(queue);
     }
+
 }

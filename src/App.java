@@ -1,7 +1,7 @@
 import Array.Array;
 import LinkedList.LinkedList;
 import LinkedList.Node;
-import Queue.StackQueue;
+import Queue.PriorityQueue;
 import Stack.Stack;
 import java.util.Arrays;
 
@@ -127,7 +127,32 @@ public class App {
         // System.out.println(queue.isFull());
 
         // Building a Queue using a Stack
-        var queue = new StackQueue(5);
+        // var queue = new StackQueue(5);
+        // System.out.println(queue.isEmpty());
+        // System.out.println(queue.isFull());
+        // queue.enqueue(10);
+        // queue.enqueue(20);
+        // queue.enqueue(30);
+        // queue.enqueue(40);
+        // queue.enqueue(50);
+        // System.out.println(queue.isFull());
+        // System.out.println(queue.peek());
+        // queue.dequeue();
+        // System.out.println(queue.peek());
+        // queue.enqueue(60);
+        // System.out.println(queue.peek());
+        // queue.dequeue();
+        // System.out.println(queue.peek());
+        // queue.dequeue();
+        // queue.dequeue();
+        // queue.dequeue();
+        // System.out.println(queue.peek());
+        // queue.dequeue();
+        // System.out.println(queue.isEmpty());
+        // System.out.println(queue.peek());
+        
+        // Building a PriorityQueue using an Array
+        var queue = new PriorityQueue(5);
         System.out.println(queue.isEmpty());
         System.out.println(queue.isFull());
         queue.enqueue(10);
@@ -138,17 +163,15 @@ public class App {
         System.out.println(queue.isFull());
         System.out.println(queue.peek());
         queue.dequeue();
+        queue.dequeue();
+        System.out.println(queue);
         System.out.println(queue.peek());
-        queue.enqueue(60);
-        System.out.println(queue.peek());
-        queue.dequeue();
-        System.out.println(queue.peek());
-        queue.dequeue();
-        queue.dequeue();
-        queue.dequeue();
+        queue.enqueue(35);
+        System.out.println(queue);
         System.out.println(queue.peek());
         queue.dequeue();
-        System.out.println(queue.isEmpty());
+        queue.enqueue(25);
+        System.out.println(queue);
         System.out.println(queue.peek());
     }
 
