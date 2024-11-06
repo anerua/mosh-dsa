@@ -1,4 +1,5 @@
 import Array.Array;
+import HashTable.CharFinder;
 import LinkedList.LinkedList;
 import LinkedList.Node;
 import Queue.PriorityQueue;
@@ -175,6 +176,12 @@ public class App {
         System.out.println(queue.peek());
     }
 
+    public void runHashTable() {
+        String text = "a green apple";
+        var finder = new CharFinder();
+        System.out.println(finder.findFirstNonRepeatingChar(text));
+    }
+
     public static void main(String[] args) throws Exception {
         App app = new App();
 
@@ -182,6 +189,7 @@ public class App {
         // app.runNode();
         // app.runLinkedList();
         // app.runStack();
-        app.runQueue();
+        // app.runQueue();
+        app.runHashTable();
     }
 }
