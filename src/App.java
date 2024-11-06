@@ -179,7 +179,8 @@ public class App {
     public void runHashTable() {
         String text = "a green apple";
         var finder = new CharFinder();
-        System.out.println(finder.findFirstNonRepeatingChar(text));
+        System.out.println(finder.findFirstNonRepeatedChar(text));
+        System.out.println(finder.findFirstRepeatedChar(text));
     }
 
     public static void main(String[] args) throws Exception {
