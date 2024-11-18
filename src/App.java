@@ -4,6 +4,7 @@ import LinkedList.LinkedList;
 import LinkedList.Node;
 import Queue.PriorityQueue;
 import Stack.Stack;
+import Tree.Tree;
 import java.util.Arrays;
 
 public class App {
@@ -183,6 +184,15 @@ public class App {
         System.out.println(finder.findFirstRepeatedChar(text));
     }
 
+    public void runTree() {
+        var tree = new Tree(10);
+        tree.insert(5);
+        tree.insert(15);
+        tree.insert(6);
+        tree.insert(12);
+        System.out.println(tree.find(12));
+    }
+
     public static void main(String[] args) throws Exception {
         App app = new App();
 
@@ -191,6 +201,7 @@ public class App {
         // app.runLinkedList();
         // app.runStack();
         // app.runQueue();
-        app.runHashTable();
+        // app.runHashTable();
+        app.runTree();
     }
 }
