@@ -191,6 +191,12 @@ public class App {
         tree.insert(6);
         tree.insert(12);
         System.out.println(tree.find(12));
+        System.out.println("Pre Order Traversal");
+        tree.traversePreOrder();
+        System.out.println("In Order Traversal");
+        tree.traverseInOrder();
+        System.out.println("Post Order Traversal");
+        tree.traversePostOrder();
     }
 
     public static void main(String[] args) throws Exception {
