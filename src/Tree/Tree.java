@@ -120,6 +120,25 @@ public class Tree {
         return Math.min(node.getValue(), Math.min(min(node.getLeftChild()), min(node.getRightChild())));
     }
 
+    public boolean equals(Tree other) {
+        if (other == null)
+            return false;
+
+        return equals(this.root, other.root);
+    }
+
+    private boolean equals(Node first, Node second) {
+        if (first == null && second == null)
+            return true;
+
+        if (first != null && second != null)
+            return first.getValue() == second.getValue()
+                    && equals(first.getLeftChild(), second.getLeftChild())
+                    && equals(first.getRightChild(), second.getRightChild());
+
+        return false;
+    }
+
     private boolean isLeaf(Node node) {
         return node.getLeftChild() == null && node.getRightChild() == null;
     }

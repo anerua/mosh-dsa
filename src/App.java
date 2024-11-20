@@ -185,22 +185,29 @@ public class App {
     }
 
     public void runTree() {
-        var tree = new Tree(10);
-        tree.insert(5);
-        tree.insert(15);
-        tree.insert(6);
-        tree.insert(12);
-        System.out.println(tree.find(12));
+        var tree1 = new Tree(10);
+        tree1.insert(5);
+        tree1.insert(15);
+        tree1.insert(6);
+        tree1.insert(12);
+        System.out.println(tree1.find(12));
         System.out.println("Pre Order Traversal");
-        tree.traversePreOrder();
+        tree1.traversePreOrder();
         System.out.println("In Order Traversal");
-        tree.traverseInOrder();
+        tree1.traverseInOrder();
         System.out.println("Post Order Traversal");
-        tree.traversePostOrder();
+        tree1.traversePostOrder();
         System.out.println("Height of the tree");
-        System.out.println(tree.height());
+        System.out.println(tree1.height());
         System.out.println("Minimum value in the tree");
-        System.out.println(tree.min());
+        System.out.println(tree1.min());
+
+        var tree2 = new Tree(10);
+        tree2.insert(5);
+        tree2.insert(15);
+        tree2.insert(6);
+        tree2.insert(12);
+        System.out.println(tree1.equals(tree2));
     }
 
     public static void main(String[] args) throws Exception {
