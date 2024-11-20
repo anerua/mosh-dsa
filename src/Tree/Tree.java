@@ -87,6 +87,9 @@ public class Tree {
     }
 
     public int height() {
+        if (this.root == null)
+            throw new IllegalStateException("Tree is empty");
+            
         return height(this.root);
     }
 
@@ -94,9 +97,30 @@ public class Tree {
         if (node == null)
             return -1;
 
-        if (node.getLeftChild() == null && node.getRightChild() == null)
+        if (isLeaf(node))
             return 0;
 
         return 1 + Math.max(height(node.getLeftChild()), height(node.getRightChild()));
+    }
+
+    public int min() {
+        if (this.root == null)
+            throw new IllegalStateException("Tree is empty");
+
+        return min(this.root);
+    }
+
+    private int min(Node node) {
+        if (node == null)
+            return Integer.MAX_VALUE;
+
+        if (isLeaf(node))
+            return node.getValue();
+
+        return Math.min(node.getValue(), Math.min(min(node.getLeftChild()), min(node.getRightChild())));
+    }
+
+    private boolean isLeaf(Node node) {
+        return node.getLeftChild() == null && node.getRightChild() == null;
     }
 }

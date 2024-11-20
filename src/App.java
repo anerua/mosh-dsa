@@ -199,6 +199,8 @@ public class App {
         tree.traversePostOrder();
         System.out.println("Height of the tree");
         System.out.println(tree.height());
+        System.out.println("Minimum value in the tree");
+        System.out.println(tree.min());
     }
 
     public static void main(String[] args) throws Exception {
