@@ -85,4 +85,18 @@ public class Tree {
         traversePostOrder(node.getRightChild());
         System.out.println(node.getValue());
     }
+
+    public int height() {
+        return height(this.root);
+    }
+
+    private int height(Node node) {
+        if (node == null)
+            return -1;
+
+        if (node.getLeftChild() == null && node.getRightChild() == null)
+            return 0;
+
+        return 1 + Math.max(height(node.getLeftChild()), height(node.getRightChild()));
+    }
 }

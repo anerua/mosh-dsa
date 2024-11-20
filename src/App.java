@@ -197,6 +197,8 @@ public class App {
         tree.traverseInOrder();
         System.out.println("Post Order Traversal");
         tree.traversePostOrder();
+        System.out.println("Height of the tree");
+        System.out.println(tree.height());
     }
 
     public static void main(String[] args) throws Exception {
