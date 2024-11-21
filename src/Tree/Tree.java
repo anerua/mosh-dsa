@@ -139,6 +139,23 @@ public class Tree {
         return false;
     }
 
+    public boolean isBinarySearchTree() {
+        return isBinarySearchTree(this.root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
+
+    private boolean isBinarySearchTree(Node node, int min, int max) { 
+        if (node == null)
+            return true;
+
+        if (node.getValue() <= min || node.getValue() >= max)
+            return false;
+
+        var left = isBinarySearchTree(node.getLeftChild(), min, node.getValue());
+        var right = isBinarySearchTree(node.getRightChild(), node.getValue(), max);
+
+        return left && right;
+    }
+
     private boolean isLeaf(Node node) {
         return node.getLeftChild() == null && node.getRightChild() == null;
     }

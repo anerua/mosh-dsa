@@ -188,7 +188,7 @@ public class App {
         var tree1 = new Tree(10);
         tree1.insert(5);
         tree1.insert(15);
-        tree1.insert(6);
+        tree1.insert(11);
         tree1.insert(12);
         System.out.println(tree1.find(12));
         System.out.println("Pre Order Traversal");
@@ -208,6 +208,8 @@ public class App {
         tree2.insert(6);
         tree2.insert(12);
         System.out.println(tree1.equals(tree2));
+
+        System.out.println(tree1.isBinarySearchTree());
     }
 
     public static void main(String[] args) throws Exception {
