@@ -156,6 +156,29 @@ public class Tree {
         return left && right;
     }
 
+    public void swapRoot() {
+        var temp = this.root.getLeftChild();
+        this.root.setLeftChild(this.root.getRightChild());
+        this.root.setRightChild(temp);
+    }
+
+    public void printNodesAtDistance(int distance) {
+        printNodesAtDistance(this.root, distance);
+    }
+
+    private void printNodesAtDistance(Node node, int distance) {
+        if (node == null)
+            return;
+
+        if (distance == 0) {
+            System.out.println(node.getValue());
+            return;
+        }
+
+        printNodesAtDistance(node.getLeftChild(), distance - 1);
+        printNodesAtDistance(node.getRightChild(), distance - 1);
+    }
+
     private boolean isLeaf(Node node) {
         return node.getLeftChild() == null && node.getRightChild() == null;
     }

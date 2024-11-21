@@ -210,6 +210,11 @@ public class App {
         System.out.println(tree1.equals(tree2));
 
         System.out.println(tree1.isBinarySearchTree());
+        tree1.swapRoot();
+        System.out.println(tree1.isBinarySearchTree());
+
+        tree1.printNodesAtDistance(2);
+        tree2.printNodesAtDistance(2);
     }
 
     public static void main(String[] args) throws Exception {
