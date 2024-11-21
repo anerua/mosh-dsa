@@ -213,8 +213,11 @@ public class App {
         tree1.swapRoot();
         System.out.println(tree1.isBinarySearchTree());
 
-        tree1.printNodesAtDistance(2);
+        tree1.printNodesAtDistance(1);
         tree2.printNodesAtDistance(2);
+
+        System.out.println("Level Order Traversal");
+        tree1.traverseLevelOrder();
     }
 
     public static void main(String[] args) throws Exception {

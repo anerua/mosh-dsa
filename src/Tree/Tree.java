@@ -179,6 +179,12 @@ public class Tree {
         printNodesAtDistance(node.getRightChild(), distance - 1);
     }
 
+    public void traverseLevelOrder() {
+        for (var i = 0; i <= height(); i++) {
+            printNodesAtDistance(i);
+        }
+    }
+
     private boolean isLeaf(Node node) {
         return node.getLeftChild() == null && node.getRightChild() == null;
     }
