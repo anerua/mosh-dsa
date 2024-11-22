@@ -47,6 +47,25 @@ public class Tree {
         return false;
     }
 
+    public boolean contains(int value) {
+        if (this.root == null)
+            throw new IllegalStateException("Tree is empty");
+
+        return contains(this.root, value);
+    }
+
+    private boolean contains(Node root, int value) {
+        if (root == null)
+            return false;
+            
+        if (value == root.getValue())
+            return true;
+        else if (value < root.getValue())
+            return contains(root.getLeftChild(), value);
+        else
+            return contains(root.getRightChild(), value);
+    }
+
     public void traversePreOrder() {
         traversePreOrder(this.root);
     }

@@ -191,7 +191,10 @@ public class App {
         tree1.insert(11);
         tree1.insert(12);
         tree1.insert(16);
+        System.out.println("Check existence with find");
         System.out.println(tree1.find(12));
+        System.out.println("Check existence with contains");
+        System.out.println(tree1.contains(12));
         System.out.println("Pre Order Traversal");
         tree1.traversePreOrder();
         System.out.println("In Order Traversal");
