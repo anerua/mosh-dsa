@@ -185,6 +185,17 @@ public class Tree {
         }
     }
 
+    public int size() {
+        return size(this.root);
+    }
+
+    private int size(Node root) {
+        if (root == null)
+            return 0;
+        
+        return 1 + size(root.getLeftChild()) + size(root.getRightChild());
+    }
+
     private boolean isLeaf(Node node) {
         return node.getLeftChild() == null && node.getRightChild() == null;
     }

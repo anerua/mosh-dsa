@@ -218,6 +218,9 @@ public class App {
 
         System.out.println("Level Order Traversal");
         tree1.traverseLevelOrder();
+
+        System.out.println("Size of tree");
+        System.out.println(tree1.size());
     }
 
     public static void main(String[] args) throws Exception {
