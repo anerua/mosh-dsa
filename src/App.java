@@ -203,6 +203,9 @@ public class App {
         System.out.println("Minimum value in the tree");
         System.out.println(tree1.min());
 
+        System.out.println("Maximum value in the tree");
+        System.out.println(tree1.max());
+
         var tree2 = new Tree(10);
         tree2.insert(5);
         tree2.insert(15);

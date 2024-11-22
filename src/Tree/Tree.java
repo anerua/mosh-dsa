@@ -120,6 +120,20 @@ public class Tree {
         return Math.min(node.getValue(), Math.min(min(node.getLeftChild()), min(node.getRightChild())));
     }
 
+    public int max() {
+        if (this.root == null)
+            throw new IllegalStateException("Tree is empty");
+
+        return max(this.root);
+    }
+
+    private int max(Node root) {
+        if (root == null)
+            return Integer.MIN_VALUE;
+    
+        return Math.max(root.getValue(), Math.max(max(root.getLeftChild()), max(root.getRightChild())));
+    }
+
     public boolean equals(Tree other) {
         if (other == null)
             return false;
@@ -203,7 +217,7 @@ public class Tree {
     private int countLeaves(Node root) {
         if (root == null)
             return 0;
-            
+
         if (isLeaf(root))
             return 1;
 
