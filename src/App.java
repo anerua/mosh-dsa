@@ -214,6 +214,7 @@ public class App {
         tree2.insert(15);
         tree2.insert(6);
         tree2.insert(12);
+        tree2.insert(2);
         System.out.println(tree1.equals(tree2));
 
         System.out.println(tree1.isBinarySearchTree());
@@ -231,6 +232,10 @@ public class App {
 
         System.out.println("Number of leaves");
         System.out.println(tree1.countLeaves());
+
+        System.out.println("Are siblings?");
+        System.out.println(tree1.areSiblings(11, 15));
+        System.out.println(tree2.areSiblings(6, 2));
     }
 
     public static void main(String[] args) throws Exception {

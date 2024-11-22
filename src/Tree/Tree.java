@@ -57,7 +57,7 @@ public class Tree {
     private boolean contains(Node root, int value) {
         if (root == null)
             return false;
-            
+
         if (value == root.getValue())
             return true;
         else if (value < root.getValue())
@@ -241,6 +241,32 @@ public class Tree {
             return 1;
 
         return countLeaves(root.getLeftChild()) + countLeaves(root.getRightChild());
+    }
+
+    public boolean areSiblings(int child1, int child2) {
+        if (this.root == null)
+            throw new IllegalStateException("The tree is empty");
+
+        return areSiblings(this.root, child1, child2);
+    }
+
+    private boolean areSiblings(Node root, int child1, int child2) {
+        if (root == null)
+            return false;
+
+        var leftChild = root.getLeftChild();
+        var rightChild = root.getRightChild();
+        if (leftChild != null && rightChild != null) {
+            if ((child1 == leftChild.getValue() && child2 == rightChild.getValue()) ||
+                (child1 == rightChild.getValue() && child2 == leftChild.getValue())
+            )
+                return true;
+        }
+
+        var left = areSiblings(leftChild, child1, child2);
+        var right = areSiblings(rightChild, child1, child2);
+
+        return left || right;
     }
 
     private boolean isLeaf(Node node) {
