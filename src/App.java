@@ -190,6 +190,7 @@ public class App {
         tree1.insert(15);
         tree1.insert(11);
         tree1.insert(12);
+        tree1.insert(16);
         System.out.println(tree1.find(12));
         System.out.println("Pre Order Traversal");
         tree1.traversePreOrder();
@@ -221,6 +222,9 @@ public class App {
 
         System.out.println("Size of tree");
         System.out.println(tree1.size());
+
+        System.out.println("Number of leaves");
+        System.out.println(tree1.countLeaves());
     }
 
     public static void main(String[] args) throws Exception {

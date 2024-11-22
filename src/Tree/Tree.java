@@ -196,6 +196,20 @@ public class Tree {
         return 1 + size(root.getLeftChild()) + size(root.getRightChild());
     }
 
+    public int countLeaves() {
+        return countLeaves(this.root);
+    }
+
+    private int countLeaves(Node root) {
+        if (root == null)
+            return 0;
+            
+        if (isLeaf(root))
+            return 1;
+
+        return countLeaves(root.getLeftChild()) + countLeaves(root.getRightChild());
+    }
+
     private boolean isLeaf(Node node) {
         return node.getLeftChild() == null && node.getRightChild() == null;
     }
