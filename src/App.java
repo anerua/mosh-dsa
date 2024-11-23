@@ -218,8 +218,8 @@ public class App {
         System.out.println(tree1.equals(tree2));
 
         System.out.println(tree1.isBinarySearchTree());
-        tree1.swapRoot();
-        System.out.println(tree1.isBinarySearchTree());
+        // tree1.swapRoot();
+        // System.out.println(tree1.isBinarySearchTree());
 
         tree1.printNodesAtDistance(1);
         tree2.printNodesAtDistance(2);
@@ -236,6 +236,9 @@ public class App {
         System.out.println("Are siblings?");
         System.out.println(tree1.areSiblings(11, 15));
         System.out.println(tree2.areSiblings(6, 2));
+
+        System.out.println("Get ancestors");
+        System.out.println(tree1.getAncestors(1));
     }
 
     public static void main(String[] args) throws Exception {

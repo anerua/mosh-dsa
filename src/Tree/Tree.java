@@ -1,5 +1,8 @@
 package Tree;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Tree {
 
     private final Node root;
@@ -60,10 +63,12 @@ public class Tree {
 
         if (value == root.getValue())
             return true;
-        else if (value < root.getValue())
+        else if (value < root.getValue()) {
             return contains(root.getLeftChild(), value);
-        else
+        }
+        else {
             return contains(root.getRightChild(), value);
+        }
     }
 
     public void traversePreOrder() {
@@ -267,6 +272,31 @@ public class Tree {
         var right = areSiblings(rightChild, child1, child2);
 
         return left || right;
+    }
+
+    public List<Integer> getAncestors(int value) {
+        var ancestors = new ArrayList<Integer>();
+        getAncestors(this.root, ancestors, value);
+        return ancestors;
+    }
+
+    private boolean getAncestors(Node root, List<Integer> ancestors, int value) {
+        if (root == null)
+            return false;
+
+        boolean isAncestor;
+        if (value == root.getValue())
+            return true;
+        else if (value < root.getValue())
+            isAncestor = getAncestors(root.getLeftChild(), ancestors, value);
+        else
+            isAncestor = getAncestors(root.getRightChild(), ancestors, value);
+        
+        if (isAncestor) {
+            ancestors.add(root.getValue());
+        }
+        
+        return isAncestor;
     }
 
     private boolean isLeaf(Node node) {
