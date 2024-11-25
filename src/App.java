@@ -1,3 +1,4 @@
+import AVLTree.AVLTree;
 import Array.Array;
 import HashTable.CharFinder;
 import LinkedList.LinkedList;
@@ -241,6 +242,13 @@ public class App {
         System.out.println(tree1.getAncestors(1));
     }
 
+    public void runAVLTree() {
+        var tree1 = new AVLTree();
+        tree1.insert(10);
+        tree1.insert(20);
+        tree1.insert(30);
+    }
+
     public static void main(String[] args) throws Exception {
         App app = new App();
 
@@ -250,6 +258,7 @@ public class App {
         // app.runStack();
         // app.runQueue();
         // app.runHashTable();
-        app.runTree();
+        // app.runTree();
+        app.runAVLTree();
     }
 }
