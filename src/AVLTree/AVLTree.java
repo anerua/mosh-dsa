@@ -3,9 +3,10 @@ package AVLTree;
 public class AVLTree {
 
     private class AVLNode {
-        private int value;
+        private final int value;
         private AVLNode leftChild;
         private AVLNode rightChild;
+        private int height;
 
         public AVLNode(int value) {
             this.value = value;
@@ -27,22 +28,23 @@ public class AVLTree {
 
     private void insert(AVLNode root, AVLNode node) {
         if (node.value < root.value) {
-            if (root.leftChild == null) {
+            if (root.leftChild == null)
                 root.leftChild = node;
-                return;
-            }
-
-            insert(root.leftChild, node);
+            else
+                insert(root.leftChild, node);
         }
         else if (node.value > root.value) {
-            if (root.rightChild == null) {
+            if (root.rightChild == null)
                 root.rightChild = node;
-                return;
-            }
-
-            insert(root.rightChild, node);
+            else
+                insert(root.rightChild, node);
         }
-         
+        
+        root.height = Math.max(height(root.leftChild), height(root.rightChild)) + 1;
+    }
+
+    private int height(AVLNode node) {
+        return node == null ? -1 : node.height;
     }
 
 }
