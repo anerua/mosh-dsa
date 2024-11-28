@@ -245,8 +245,9 @@ public class App {
     public void runAVLTree() {
         var tree1 = new AVLTree();
         tree1.insert(10);
-        tree1.insert(30);
         tree1.insert(20);
+        tree1.insert(30);
+        System.out.println(tree1.isBalanced());
     }
 
     public static void main(String[] args) throws Exception {

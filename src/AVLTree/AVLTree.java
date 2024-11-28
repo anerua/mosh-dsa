@@ -70,6 +70,20 @@ public class AVLTree {
 
         return newRoot;
     }
+
+    public boolean isBalanced() {
+        return isBalanced(this.root);
+    }
+
+    private boolean isBalanced(AVLNode node) {
+        if (node == null)
+            return true;
+
+        if (isLeftHeavy(node) || isRightHeavy(node))
+            return false;
+        
+        return isBalanced(node.leftChild) && isBalanced(node.rightChild);
+    }
     
     private int height(AVLNode node) {
         return node == null ? -1 : node.height;
