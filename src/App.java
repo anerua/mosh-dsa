@@ -1,6 +1,7 @@
 import AVLTree.AVLTree;
 import Array.Array;
 import HashTable.CharFinder;
+import Heap.Heap;
 import LinkedList.LinkedList;
 import LinkedList.Node;
 import Queue.PriorityQueue;
@@ -250,6 +251,16 @@ public class App {
         System.out.println(tree1.isBalanced());
     }
 
+    public void runHeap() {
+        var heap = new Heap(10);
+        heap.insert(10);
+        heap.insert(5);
+        heap.insert(17);
+        heap.insert(4);
+        heap.insert(22);
+        System.out.println("Done");
+    }
+
     public static void main(String[] args) throws Exception {
         App app = new App();
 
@@ -260,6 +271,7 @@ public class App {
         // app.runQueue();
         // app.runHashTable();
         // app.runTree();
-        app.runAVLTree();
+        // app.runAVLTree();
+        app.runHeap();
     }
 }
