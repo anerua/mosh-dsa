@@ -2,6 +2,7 @@ import AVLTree.AVLTree;
 import Array.Array;
 import HashTable.CharFinder;
 import Heap.Heap;
+import Heap.MaxHeap;
 import LinkedList.LinkedList;
 import LinkedList.Node;
 import Queue.PriorityQueue;
@@ -260,6 +261,10 @@ public class App {
         heap.insert(22);
         System.out.println(heap.remove());
         System.out.println("Done");
+
+        int[] numbers = { 5, 3, 8, 4, 1, 2 };
+        MaxHeap.heapify(numbers);
+        System.out.println(Arrays.toString(numbers));
     }
 
     public static void main(String[] args) throws Exception {
