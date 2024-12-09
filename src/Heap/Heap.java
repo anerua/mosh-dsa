@@ -113,4 +113,11 @@ public class Heap {
     public boolean isEmpty() {
         return size == 0;
     }
+
+    public int max() {
+        if (isEmpty())
+            throw new IllegalStateException("Heap is empty");
+
+        return heap[0];
+    }
 }
