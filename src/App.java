@@ -1,6 +1,7 @@
 import AVLTree.AVLTree;
 import Array.Array;
 import HashTable.CharFinder;
+import HashTable.HashTable;
 import Heap.Heap;
 import Heap.MaxHeap;
 import LinkedList.LinkedList;
@@ -185,6 +186,13 @@ public class App {
         var finder = new CharFinder();
         System.out.println(finder.findFirstNonRepeatedChar(text));
         System.out.println(finder.findFirstRepeatedChar(text));
+
+        var hashTable = new HashTable();
+        hashTable.put(6, "John");
+        hashTable.put(8, "Jane");
+        hashTable.put(11, "Doe");
+        hashTable.remove(6);
+        System.out.println(hashTable.get(6));
     }
 
     public void runTree() {
@@ -277,9 +285,9 @@ public class App {
         // app.runLinkedList();
         // app.runStack();
         // app.runQueue();
-        // app.runHashTable();
+        app.runHashTable();
         // app.runTree();
         // app.runAVLTree();
-        app.runHeap();
+        // app.runHeap();
     }
 }
