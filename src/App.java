@@ -9,6 +9,7 @@ import LinkedList.Node;
 import Queue.PriorityQueue;
 import Stack.Stack;
 import Tree.Tree;
+import Trie.Trie;
 import java.util.Arrays;
 
 public class App {
@@ -277,6 +278,15 @@ public class App {
         System.out.println(MaxHeap.getKthLargest(numbers, 1));
     }
 
+    public void runTrie() {
+        var trie = new Trie();
+        trie.insert("cat");
+        trie.insert("cab");
+        trie.insert("star");
+        trie.insert("crop");
+        System.out.println("Done");
+    }
+
     public static void main(String[] args) throws Exception {
         App app = new App();
 
@@ -285,9 +295,10 @@ public class App {
         // app.runLinkedList();
         // app.runStack();
         // app.runQueue();
-        app.runHashTable();
+        // app.runHashTable();
         // app.runTree();
         // app.runAVLTree();
         // app.runHeap();
+        app.runTrie();
     }
 }
