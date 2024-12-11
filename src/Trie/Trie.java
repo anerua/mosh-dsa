@@ -1,10 +1,12 @@
 package Trie;
 
+import java.util.HashMap;
+
 public class Trie {
 
     private class Node {
         private final char value;
-        private final Node[] children = new Node[26];
+        private final HashMap<Character, Node> children = new HashMap<>();
         private boolean isEndOfWord;
 
         public Node(char value) {
@@ -17,13 +19,10 @@ public class Trie {
     public void insert(String word) {
         Node current = root;
         for (char letter : word.toCharArray()) {
-            int index = letter - 'a';
-            if (current.children[index] == null)
-                current.children[index] = new Node(letter);
-
-            current = current.children[index];
+            if (current.children.get(letter) == null)
+                current.children.put(letter, new Node(letter));
+            current = current.children.get(letter);
         }
-
         current.isEndOfWord = true;
     }
 }
