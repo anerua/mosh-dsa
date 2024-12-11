@@ -1,5 +1,6 @@
 package Trie;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class Trie {
@@ -37,5 +38,32 @@ public class Trie {
             current = current.children.get(letter);
         }
         return current.isEndOfWord;
+    }
+
+    public void remove(String word) {
+        if (word == null || word.equals(""))
+            return;
+        
+        remove(root, word.toCharArray());
+    }
+
+    private void remove(Node root, char[] word) {
+        if (root == null)
+            return;
+            
+        if (word == null) {
+            root.isEndOfWord = false;
+            return;
+        }
+
+        var newRoot = root.children.get(word[0]);
+        var newWord = (word.length == 1) ? null : Arrays.copyOfRange(word, 1, word.length);
+      
+        remove(newRoot, newWord);
+
+        if (newRoot != null) {
+            if (!newRoot.isEndOfWord && newRoot.children.isEmpty())
+                root.children.remove(word[0]);
+        }
     }
 }

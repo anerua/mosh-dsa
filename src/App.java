@@ -284,7 +284,17 @@ public class App {
         trie.insert("star");
         trie.insert("dreams");
         trie.insert("crop");
-        System.out.println(trie.contains(null));
+        System.out.println(trie.contains("canada"));
+        trie.remove("canada");
+        System.out.println(trie.contains("canada"));
+
+        // var trie2 = new Trie();
+        trie.insert("bo");
+        trie.insert("boo");
+        trie.insert("book");
+        trie.insert("bor");
+        trie.remove("boo");
+        System.out.println(trie.contains("bor"));
     }
 
     public static void main(String[] args) throws Exception {
