@@ -280,11 +280,11 @@ public class App {
 
     public void runTrie() {
         var trie = new Trie();
-        trie.insert("cat");
-        trie.insert("cab");
+        trie.insert("canada");
         trie.insert("star");
+        trie.insert("dreams");
         trie.insert("crop");
-        System.out.println("Done");
+        System.out.println(trie.contains(null));
     }
 
     public static void main(String[] args) throws Exception {

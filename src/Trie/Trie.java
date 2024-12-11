@@ -25,4 +25,17 @@ public class Trie {
         }
         current.isEndOfWord = true;
     }
+
+    public boolean contains(String word) {
+        if (word == null)
+            return false;
+        
+        Node current = root;
+        for (char letter : word.toCharArray()) {
+            if (current.children.get(letter) == null)
+                return false;
+            current = current.children.get(letter);
+        }
+        return current.isEndOfWord;
+    }
 }
