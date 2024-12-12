@@ -1,7 +1,9 @@
 package Trie;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 public class Trie {
 
@@ -50,7 +52,7 @@ public class Trie {
     private void remove(Node root, char[] word) {
         if (root == null)
             return;
-            
+
         if (word == null) {
             root.isEndOfWord = false;
             return;
@@ -65,5 +67,34 @@ public class Trie {
             if (!newRoot.isEndOfWord && newRoot.children.isEmpty())
                 root.children.remove(word[0]);
         }
+    }
+
+    public List<String> autocomplete(String prefix) {
+        List<String> words = new ArrayList<>();
+
+        if (prefix != null) {
+            Node current = root;
+            for (char letter : prefix.toCharArray()) {
+                if (current.children.get(letter) == null)
+                    return words;
+                current = current.children.get(letter);
+            }
+
+            autocomplete(current, prefix, words);
+        }
+
+        return words;
+    }
+
+    private void autocomplete(Node root, String prefix, List<String> words) {
+        if (root.isEndOfWord)
+            words.add(prefix);
+
+        var children = root.children.values().toArray(Node[]::new);
+        if (children == null)
+            return;
+
+        for (Node child : children)
+            autocomplete(child, prefix + child.value, words);
     }
 }

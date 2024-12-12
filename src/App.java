@@ -284,17 +284,19 @@ public class App {
         trie.insert("star");
         trie.insert("dreams");
         trie.insert("crop");
+        trie.insert("can");
         System.out.println(trie.contains("canada"));
-        trie.remove("canada");
-        System.out.println(trie.contains("canada"));
+        // trie.remove("canada");
+        // System.out.println(trie.contains("canada"));
+        System.out.println(trie.autocomplete("c"));
 
         // var trie2 = new Trie();
-        trie.insert("bo");
-        trie.insert("boo");
-        trie.insert("book");
-        trie.insert("bor");
-        trie.remove("boo");
-        System.out.println(trie.contains("bor"));
+        // trie2.insert("bo");
+        // trie2.insert("boo");
+        // trie2.insert("book");
+        // trie2.insert("bor");
+        // trie2.remove("boo");
+        // System.out.println(trie2.contains("bor"));
     }
 
     public static void main(String[] args) throws Exception {
