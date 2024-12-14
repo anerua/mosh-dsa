@@ -1,5 +1,6 @@
 import AVLTree.AVLTree;
 import Array.Array;
+import Graph.Graph;
 import HashTable.CharFinder;
 import HashTable.HashTable;
 import Heap.Heap;
@@ -299,6 +300,24 @@ public class App {
         // System.out.println(trie2.contains("bor"));
     }
 
+    public void runGraph() {
+        var graph = new Graph();
+        graph.addNode("A");
+        graph.addNode("B");
+        graph.addNode("C");
+        graph.addEdge("A", "B");
+        graph.addEdge("A", "C");
+        graph.addEdge("B", "C");
+        graph.addNode("D");
+        graph.addEdge("D", "A");
+        graph.addEdge("D", "C");
+        graph.print();
+        System.out.println("-----------------");
+        // graph.removeEdge("D", "A");
+        graph.removeNode("C");
+        graph.print();
+    }
+
     public static void main(String[] args) throws Exception {
         App app = new App();
 
@@ -311,6 +330,7 @@ public class App {
         // app.runTree();
         // app.runAVLTree();
         // app.runHeap();
-        app.runTrie();
+        // app.runTrie();
+        app.runGraph();
     }
 }
