@@ -317,7 +317,11 @@ public class App {
         // graph.removeNode("C");
         // graph.print();
 
+        System.out.println("Recursive:");
         graph.depthFirstTraversal("A");
+
+        System.out.println("Iterative:");
+        graph.depthFirstTraversalIterative("A");
     }
 
     public static void main(String[] args) throws Exception {

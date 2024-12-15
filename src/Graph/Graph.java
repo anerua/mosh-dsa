@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Stack;
 
 public class Graph {
 
@@ -128,6 +129,31 @@ public class Graph {
         for (Node neighbor : nodes.get(root))
             if (!traversed.contains(neighbor.label))
                 depthFirstTraversal(neighbor, traversed);
+    }
+
+    public void depthFirstTraversalIterative(String label) {
+        Node node = new Node(label);
+        if (!nodes.containsKey(node))
+            return;
+
+        Set<String> traversed = new HashSet<>();
+        Stack<Node> callStack = new Stack<>();
+        callStack.push(node);
+
+        while(!callStack.empty()) {
+            Node current = callStack.pop();
+
+            if (traversed.contains(current.label))
+                continue;
+
+            System.out.println(current.label);
+            traversed.add(current.label);
+            
+            for (Node neighbor : nodes.get(current))
+                if (!traversed.contains(neighbor.label))
+                    callStack.push(neighbor);
+
+        }
     }
 
     
