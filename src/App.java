@@ -305,11 +305,11 @@ public class App {
         graph.addNode("A");
         graph.addNode("B");
         graph.addNode("C");
+        graph.addNode("D");
         graph.addEdge("A", "B");
         graph.addEdge("A", "C");
-        graph.addEdge("B", "C");
-        graph.addNode("D");
-        graph.addEdge("D", "A");
+        graph.addEdge("B", "D");
+        graph.addEdge("D", "C");
         graph.addEdge("D", "C");
         graph.print();
         System.out.println("-----------------");
@@ -322,6 +322,9 @@ public class App {
 
         System.out.println("Iterative:");
         graph.depthFirstTraversalIterative("A");
+
+        System.out.println("Breadth-First Traversal");
+        graph.breadthFirstTraversal("A");
     }
 
     public static void main(String[] args) throws Exception {

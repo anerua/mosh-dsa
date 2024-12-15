@@ -1,11 +1,13 @@
 package Graph;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Queue;
 import java.util.Set;
 import java.util.Stack;
 
@@ -140,7 +142,7 @@ public class Graph {
         Stack<Node> callStack = new Stack<>();
         callStack.push(node);
 
-        while(!callStack.empty()) {
+        while (!callStack.empty()) {
             Node current = callStack.pop();
 
             if (traversed.contains(current.label))
@@ -153,6 +155,30 @@ public class Graph {
                 if (!traversed.contains(neighbor.label))
                     callStack.push(neighbor);
 
+        }
+    }
+
+    public void breadthFirstTraversal(String label) {
+        Node node = new Node(label);
+        if (!nodes.containsKey(node))
+            return;
+
+        Set<String> traversed = new HashSet<>();
+        Queue<Node> callQueue = new ArrayDeque<>();
+        callQueue.add(node);
+
+        while (!callQueue.isEmpty()) {
+            Node current = callQueue.poll();
+
+            if (traversed.contains(current.label))
+                continue;
+
+            System.out.println(current.label);
+            traversed.add(current.label);
+
+            for (Node neighbor : nodes.get(current))
+                if (!traversed.contains(neighbor.label))
+                    callQueue.add(neighbor);
         }
     }
 
