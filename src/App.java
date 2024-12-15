@@ -314,8 +314,10 @@ public class App {
         graph.print();
         System.out.println("-----------------");
         // graph.removeEdge("D", "A");
-        graph.removeNode("C");
-        graph.print();
+        // graph.removeNode("C");
+        // graph.print();
+
+        graph.depthFirstTraversal("A");
     }
 
     public static void main(String[] args) throws Exception {

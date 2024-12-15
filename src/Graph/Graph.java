@@ -2,9 +2,11 @@ package Graph;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class Graph {
 
@@ -110,5 +112,24 @@ public class Graph {
             System.out.println(node.getKey() + " is connected with " + neighbors.toString());
         }
     }
+
+    public void depthFirstTraversal(String label) {
+        Node node = new Node(label);
+        if (!nodes.containsKey(node))
+            return;
+
+        depthFirstTraversal(node, new HashSet<>());
+    }
+
+    private void depthFirstTraversal(Node root, Set<String> traversed) {
+        System.out.println(root.label);
+        traversed.add(root.label);
+
+        for (Node neighbor : nodes.get(root))
+            if (!traversed.contains(neighbor.label))
+                depthFirstTraversal(neighbor, traversed);
+    }
+
+    
 
 }
