@@ -325,6 +325,19 @@ public class App {
 
         System.out.println("Breadth-First Traversal");
         graph.breadthFirstTraversal("A");
+
+        var graph2 = new Graph();
+        graph2.addNode("X");
+        graph2.addNode("A");
+        graph2.addNode("B");
+        graph2.addNode("P");
+        graph2.addEdge("X", "A");
+        graph2.addEdge("X", "B");
+        graph2.addEdge("A", "P");
+        graph2.addEdge("B", "P");
+
+        System.out.println("Topological Sort");
+        System.out.println(graph2.topologicalSort());
     }
 
     public static void main(String[] args) throws Exception {

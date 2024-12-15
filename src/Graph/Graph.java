@@ -182,6 +182,32 @@ public class Graph {
         }
     }
 
+    public List<String> topologicalSort() {
+        Set<String> traversed = new HashSet<>();
+        Stack<Node> sortStack = new Stack<>();
+
+        for (Node node : nodes.keySet())
+            topologicalSort(node, traversed, sortStack);
+
+        List<String> sorted = new ArrayList<>();
+        while (!sortStack.empty())
+            sorted.add(sortStack.pop().label);
+        
+        return sorted;
+    }
+
+    private void topologicalSort(Node root, Set<String> traversed, Stack<Node> sortStack) {
+        if (traversed.contains(root.label))
+            return;
+
+        traversed.add(root.label);
+
+        for (Node neighbor : nodes.get(root))
+            topologicalSort(neighbor, traversed, sortStack);
+
+        sortStack.push(root);
+    }
+
     
 
 }
