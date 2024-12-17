@@ -1,6 +1,7 @@
 import AVLTree.AVLTree;
 import Array.Array;
 import Graph.Graph;
+import Graph.WeightedGraph;
 import HashTable.CharFinder;
 import HashTable.HashTable;
 import Heap.Heap;
@@ -343,6 +344,16 @@ public class App {
         System.out.println(graph2.hasCycle());
     }
 
+    public void runWeightedGraph() {
+        var graph = new WeightedGraph();
+        graph.addNode("A");
+        graph.addNode("B");
+        graph.addNode("C");
+        graph.addEdge("A", "B", 3);
+        graph.addEdge("A", "C", 2);
+        graph.print();
+    }
+
     public static void main(String[] args) throws Exception {
         App app = new App();
 
@@ -356,6 +367,7 @@ public class App {
         // app.runAVLTree();
         // app.runHeap();
         // app.runTrie();
-        app.runGraph();
+        // app.runGraph();
+        app.runWeightedGraph();
     }
 }
