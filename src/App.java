@@ -338,6 +338,9 @@ public class App {
 
         System.out.println("Topological Sort");
         System.out.println(graph2.topologicalSort());
+
+        System.out.println("Has cycle");
+        System.out.println(graph2.hasCycle());
     }
 
     public static void main(String[] args) throws Exception {

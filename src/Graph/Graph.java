@@ -208,6 +208,39 @@ public class Graph {
         sortStack.push(root);
     }
 
-    
+    public boolean hasCycle() {
+        Set<Node> allNodes = new HashSet<>(nodes.keySet());
+        Set<String> visiting = new HashSet<>();
+        Set<String> traversed = new HashSet<>();
+
+        while (!allNodes.isEmpty()) {
+            Node current = allNodes.iterator().next();
+            if (hasCycle(current, allNodes, visiting, traversed))
+                return true;
+        }
+
+        return false;
+    }
+
+    private boolean hasCycle(Node node, Set<Node> allNodes, Set<String> visiting, Set<String> traversed) {
+        allNodes.remove(node);
+        visiting.add(node.label);
+
+        for (Node neighbor : nodes.get(node)) {
+            if (traversed.contains(neighbor.label))
+                continue;
+
+            if (visiting.contains(neighbor.label))
+                return true;
+
+            if (hasCycle(neighbor, allNodes, visiting, traversed))
+                return true;
+        }
+
+        visiting.remove(node.label);
+        traversed.add(node.label);
+
+        return false;
+    }
 
 }
