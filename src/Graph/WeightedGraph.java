@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Set;
+import java.util.Stack;
 
 public class WeightedGraph {
 
@@ -126,8 +127,14 @@ public class WeightedGraph {
         }
     }
 
-    public int getShortestDistance(String from, String to) {
+    public Path getShortestPath(String from, String to) {
         Node fromNode = new Node(from);
+        if (!nodes.containsKey(fromNode))
+            throw new IllegalArgumentException();
+
+        Node toNode = new Node(to);
+        if (!nodes.containsKey(toNode))
+            throw new IllegalArgumentException();
 
         Map<Node, Integer> distances = new HashMap<>();
         for (Node node : nodes.keySet())
@@ -156,12 +163,29 @@ public class WeightedGraph {
                 int newDistance = distances.get(current) + edge.weight;
                 if (newDistance < distances.get(edge.to)) {
                     distances.replace(edge.to, newDistance);
+                    previousNodes.put(edge.to, current);
                     queue.add(new NodeEntry(edge.to, newDistance));
                 }
             }
         }
 
-        return distances.get(new Node(from));
+        return buildPath(previousNodes, toNode);
+    }
+
+    private Path buildPath(Map<Node, Node> previousNodes, Node toNode) {
+        Stack<Node> stack = new Stack<>();
+        stack.push(toNode);
+        Node previous = previousNodes.get(toNode);
+        while (previous != null) {
+            stack.push(previous);
+            previous = previousNodes.get(previous);
+        }
+
+        Path path = new Path();
+        while (!stack.empty())
+            path.add(stack.pop().label);
+
+        return path;
     }
 
 }
