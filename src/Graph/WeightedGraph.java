@@ -1,10 +1,14 @@
 package Graph;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.PriorityQueue;
+import java.util.Set;
 
 public class WeightedGraph {
 
@@ -64,9 +68,9 @@ public class WeightedGraph {
     }
 
     private class Edge {
-        private Node from;
-        private Node to;
-        private int weight;
+        private final Node from;
+        private final Node to;
+        private final int weight;
 
         public Edge(Node from, Node to, int weight) {
             this.from = from;
@@ -81,8 +85,7 @@ public class WeightedGraph {
     }
 
     public void addNode(String label) {
-        Node node = new Node(label);
-        nodes.putIfAbsent(node, new LinkedList<>());
+        nodes.putIfAbsent(new Node(label), new LinkedList<>());
     }
 
     public void addEdge(String from, String to, int weight) {
@@ -106,11 +109,59 @@ public class WeightedGraph {
 
     public void print() {
         for (var node : nodes.entrySet()) {
-            List<Edge> neighbors = new ArrayList<>();
-            for (var neighbor : node.getValue())
-                neighbors.add(neighbor);
-            System.out.println(node.getKey() + " is connected with " + neighbors.toString());
+            List<Edge> edges = new ArrayList<>();
+            for (Edge edge : node.getValue())
+                edges.add(edge);
+            System.out.println(node.getKey() + " is connected with " + edges.toString());
         }
+    }
+
+    private class NodeEntry {
+        private final Node node;
+        private final int priority;
+
+        public NodeEntry(Node node, int priority) {
+            this.node = node;
+            this.priority = priority;
+        }
+    }
+
+    public int getShortestDistance(String from, String to) {
+        Node fromNode = new Node(from);
+
+        Map<Node, Integer> distances = new HashMap<>();
+        for (Node node : nodes.keySet())
+            distances.put(node, Integer.MAX_VALUE);
+        distances.replace(fromNode, 0);
+
+        Set<Node> visited = new HashSet<>();
+        
+        Map<Node, Node> previousNodes = new HashMap<>();
+
+
+        PriorityQueue<NodeEntry> queue = new PriorityQueue<>(
+            Comparator.comparingInt(ne -> ne.priority)
+        );
+
+        queue.add(new NodeEntry(fromNode, 0));
+
+        while (!queue.isEmpty()) {
+            Node current = queue.poll().node;
+            visited.add(current);
+
+            for (Edge edge : nodes.get(current)) {
+                if (visited.contains(edge.to))
+                    continue;
+
+                int newDistance = distances.get(current) + edge.weight;
+                if (newDistance < distances.get(edge.to)) {
+                    distances.replace(edge.to, newDistance);
+                    queue.add(new NodeEntry(edge.to, newDistance));
+                }
+            }
+        }
+
+        return distances.get(new Node(from));
     }
 
 }
