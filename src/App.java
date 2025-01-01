@@ -355,6 +355,8 @@ public class App {
         
         var path = graph.getShortestPath("A", "C");
         System.out.println(path);
+
+        System.out.println(graph.hasCycle());
     }
 
     public static void main(String[] args) throws Exception {

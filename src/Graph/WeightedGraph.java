@@ -37,10 +37,7 @@ public class WeightedGraph {
                 return false;
             
             Node other = (Node) obj;
-            if (!label.equals(other.label))
-                return false;
-            
-            return true;
+            return label.equals(other.label);
         }
 
         @Override
@@ -186,6 +183,29 @@ public class WeightedGraph {
             path.add(stack.pop().label);
 
         return path;
+    }
+
+    public boolean hasCycle() {
+        Set<Node> visited = new HashSet<>();
+
+        for (Node node : nodes.keySet()) {
+            if (!visited.contains(node) && hasCycle(node, null, visited))
+                return true;
+        }
+
+        return false;
+    }
+
+    private boolean hasCycle(Node current, Node parent, Set<Node> visited) {
+        visited.add(current);
+
+        for (Edge edge : nodes.get(current)) {
+            if (!edge.to.equals(parent))
+                if (visited.contains(edge.to) || hasCycle(edge.to, current, visited))
+                    return true;
+        }
+
+        return false;
     }
 
 }
