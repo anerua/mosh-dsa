@@ -357,6 +357,19 @@ public class App {
         System.out.println(path);
 
         System.out.println(graph.hasCycle());
+
+        var graph2 = new WeightedGraph();
+        graph2.addNode("A");
+        graph2.addNode("B");
+        graph2.addNode("C");
+        graph2.addNode("D");
+        graph2.addEdge("A", "B", 3);
+        graph2.addEdge("B", "D", 4);
+        graph2.addEdge("C", "D", 5);
+        graph2.addEdge("A", "C", 1);
+        graph2.addEdge("B", "C", 2);
+        var tree = graph2.getMinimumSpanningTree();
+        tree.print();
     }
 
     public static void main(String[] args) throws Exception {
