@@ -9,6 +9,7 @@ import Heap.MaxHeap;
 import LinkedList.LinkedList;
 import LinkedList.Node;
 import Queue.PriorityQueue;
+import SortingAlgorithms.BubbleSort;
 import Stack.Stack;
 import Tree.Tree;
 import Trie.Trie;
@@ -372,6 +373,13 @@ public class App {
         tree.print();
     }
 
+    public void runSortingAlgorithms() {
+        int[] items = {8, 2, 4, 1, 3};
+        var bubbleSort = new BubbleSort();
+        bubbleSort.sort(items);
+        System.out.println(Arrays.toString(items));
+    }
+
     public static void main(String[] args) throws Exception {
         App app = new App();
 
@@ -386,6 +394,7 @@ public class App {
         // app.runHeap();
         // app.runTrie();
         // app.runGraph();
-        app.runWeightedGraph();
+        // app.runWeightedGraph();
+        app.runSortingAlgorithms();
     }
 }
