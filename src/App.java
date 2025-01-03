@@ -10,6 +10,7 @@ import LinkedList.LinkedList;
 import LinkedList.Node;
 import Queue.PriorityQueue;
 import SortingAlgorithms.BubbleSort;
+import SortingAlgorithms.InsertionSort;
 import SortingAlgorithms.SelectionSort;
 import Stack.Stack;
 import Tree.Tree;
@@ -389,6 +390,13 @@ public class App {
         selectionSort.sort(items2);
         System.out.println("Selection Sort");
         System.out.println(Arrays.toString(items2));
+        System.out.println();
+
+        var items3 = array.clone();
+        var insertionSort = new InsertionSort();
+        insertionSort.sort(items3);
+        System.out.println("Insertion Sort");
+        System.out.println(Arrays.toString(items3));
         System.out.println();
     }
 
