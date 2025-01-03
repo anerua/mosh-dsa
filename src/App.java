@@ -10,6 +10,7 @@ import LinkedList.LinkedList;
 import LinkedList.Node;
 import Queue.PriorityQueue;
 import SortingAlgorithms.BubbleSort;
+import SortingAlgorithms.SelectionSort;
 import Stack.Stack;
 import Tree.Tree;
 import Trie.Trie;
@@ -374,10 +375,21 @@ public class App {
     }
 
     public void runSortingAlgorithms() {
-        int[] items = {8, 2, 4, 1, 3};
+        int[] array = {8, 2, 4, 1, 3};
+
+        var items = array.clone();
         var bubbleSort = new BubbleSort();
         bubbleSort.sort(items);
+        System.out.println("Bubble Sort");
         System.out.println(Arrays.toString(items));
+        System.out.println();
+
+        var items2 = array.clone();
+        var selectionSort = new SelectionSort();
+        selectionSort.sort(items2);
+        System.out.println("Selection Sort");
+        System.out.println(Arrays.toString(items2));
+        System.out.println();
     }
 
     public static void main(String[] args) throws Exception {
