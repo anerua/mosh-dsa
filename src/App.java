@@ -11,6 +11,7 @@ import LinkedList.Node;
 import Queue.PriorityQueue;
 import SortingAlgorithms.BubbleSort;
 import SortingAlgorithms.InsertionSort;
+import SortingAlgorithms.MergeSort;
 import SortingAlgorithms.SelectionSort;
 import Stack.Stack;
 import Tree.Tree;
@@ -376,7 +377,8 @@ public class App {
     }
 
     public void runSortingAlgorithms() {
-        int[] array = {8, 2, 4, 1, 3};
+        int[] array2 = {8, 2, 4, 1, 3};
+        int[] array = {7, 3, 5, 2, 3, 1, 5, 8};
 
         var items = array.clone();
         var bubbleSort = new BubbleSort();
@@ -397,6 +399,13 @@ public class App {
         insertionSort.sort(items3);
         System.out.println("Insertion Sort");
         System.out.println(Arrays.toString(items3));
+        System.out.println();
+
+        var items4 = array.clone();
+        var mergeSort = new MergeSort();
+        mergeSort.sort(items4);
+        System.out.println("Merge Sort");
+        System.out.println(Arrays.toString(items4));
         System.out.println();
     }
 
