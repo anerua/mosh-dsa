@@ -12,6 +12,7 @@ import Queue.PriorityQueue;
 import SortingAlgorithms.BubbleSort;
 import SortingAlgorithms.InsertionSort;
 import SortingAlgorithms.MergeSort;
+import SortingAlgorithms.QuickSort;
 import SortingAlgorithms.SelectionSort;
 import Stack.Stack;
 import Tree.Tree;
@@ -406,6 +407,13 @@ public class App {
         mergeSort.sort(items4);
         System.out.println("Merge Sort");
         System.out.println(Arrays.toString(items4));
+        System.out.println();
+
+        var items5 = array.clone();
+        var quickSort = new QuickSort();
+        quickSort.sort(items5);
+        System.out.println("Quick Sort");
+        System.out.println(Arrays.toString(items5));
         System.out.println();
     }
 
