@@ -10,6 +10,7 @@ import LinkedList.LinkedList;
 import LinkedList.Node;
 import Queue.PriorityQueue;
 import SortingAlgorithms.BubbleSort;
+import SortingAlgorithms.BucketSort;
 import SortingAlgorithms.CountingSort;
 import SortingAlgorithms.InsertionSort;
 import SortingAlgorithms.MergeSort;
@@ -422,6 +423,13 @@ public class App {
         countingSort.sort(items6, 8);
         System.out.println("Counting Sort");
         System.out.println(Arrays.toString(items6));
+        System.out.println();
+
+        var items7 = array.clone();
+        var bucketSort = new BucketSort();
+        bucketSort.sort(items7, 3);
+        System.out.println("Bucket Sort");
+        System.out.println(Arrays.toString(items7));
         System.out.println();
     }
 
