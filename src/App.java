@@ -436,11 +436,21 @@ public class App {
 
     public void runSearchingAlgorithms() {
         int[] items = { 7, 3, 5, 2, 3, 1, 5, 8 };
+        int[] sortedItems = { 1, 2, 3, 3, 5, 5, 7, 8 };
         int target = 5;
 
         var search = new Search();
+
         System.out.println("Linear Search");
         System.out.println(search.linearSearch(items, target));
+        System.out.println();
+
+        System.out.println("Binary Search (Recursive)");
+        System.out.println(search.binarySearchRecursive(sortedItems, target));
+        System.out.println();
+
+        System.out.println("Binary Search (Iterative)");
+        System.out.println(search.binarySearchIterative(sortedItems, target));
         System.out.println();
     }
 
