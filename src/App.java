@@ -9,6 +9,7 @@ import Heap.MaxHeap;
 import LinkedList.LinkedList;
 import LinkedList.Node;
 import Queue.PriorityQueue;
+import SearchingAlgorithms.Search;
 import SortingAlgorithms.BubbleSort;
 import SortingAlgorithms.BucketSort;
 import SortingAlgorithms.CountingSort;
@@ -433,6 +434,16 @@ public class App {
         System.out.println();
     }
 
+    public void runSearchingAlgorithms() {
+        int[] items = { 7, 3, 5, 2, 3, 1, 5, 8 };
+        int target = 5;
+
+        var search = new Search();
+        System.out.println("Linear Search");
+        System.out.println(search.linearSearch(items, target));
+        System.out.println();
+    }
+
     public static void main(String[] args) throws Exception {
         App app = new App();
 
@@ -448,6 +459,7 @@ public class App {
         // app.runTrie();
         // app.runGraph();
         // app.runWeightedGraph();
-        app.runSortingAlgorithms();
+        // app.runSortingAlgorithms();
+        app.runSearchingAlgorithms();
     }
 }
