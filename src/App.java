@@ -452,6 +452,10 @@ public class App {
         System.out.println("Binary Search (Iterative)");
         System.out.println(search.binarySearchIterative(sortedItems, target));
         System.out.println();
+
+        System.out.println("Ternary Search");
+        System.out.println(search.ternarySearch(sortedItems, target));
+        System.out.println();
     }
 
     public static void main(String[] args) throws Exception {

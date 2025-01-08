@@ -45,4 +45,31 @@ public class Search {
 
         return -1;
     }
+
+    public int ternarySearch(int[] items, int target) {
+        return ternarySearch(items, target, 0, items.length - 1);
+    }
+
+    private int ternarySearch(int[] items, int target, int left, int right) {
+        if (left > right)
+            return -1;
+
+        int partitionSize = (right - left) / 3;
+        int mid1 = left + partitionSize;
+        int mid2 = right - partitionSize;
+        
+        if (target == items[mid1])
+            return mid1;
+        
+        if (target == items[mid2])
+            return mid2;
+        
+        if (target < items[mid1])
+            return ternarySearch(items, target, left, mid1 - 1);
+        
+        if (target > items[mid1] && target < items[mid2])
+            return ternarySearch(items, target, mid1 + 1, mid2 - 1);
+
+        return ternarySearch(items, target, mid2 + 1, right);
+    }
 }
