@@ -72,4 +72,30 @@ public class Search {
 
         return ternarySearch(items, target, mid2 + 1, right);
     }
+
+    public int jumpSearch(int[] items, int target) {
+        int blockSize = (int) Math.sqrt(items.length);
+        int start = 0;
+        int next = start + blockSize;
+        while (start < items.length) {
+            if (next > items.length)
+                next = items.length;
+
+            if (target <= items[next - 1])
+                return linearSearchForJumpSearch(items, target, start, next - 1);
+            
+            start = next;
+            next = start + blockSize;
+        }
+
+        return -1;
+    }
+
+    private int linearSearchForJumpSearch(int[] items, int target, int start, int end) {
+        for (int i = start; i <= end; i++)
+            if (target == items[i])
+                return i;
+
+        return -1;
+    }
 }

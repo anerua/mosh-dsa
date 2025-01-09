@@ -437,7 +437,7 @@ public class App {
     public void runSearchingAlgorithms() {
         int[] items = { 7, 3, 5, 2, 3, 1, 5, 8 };
         int[] sortedItems = { 1, 2, 3, 3, 5, 5, 7, 8 };
-        int target = 5;
+        int target = 3;
 
         var search = new Search();
 
@@ -455,6 +455,10 @@ public class App {
 
         System.out.println("Ternary Search");
         System.out.println(search.ternarySearch(sortedItems, target));
+        System.out.println();
+
+        System.out.println("Jump Search");
+        System.out.println(search.jumpSearch(sortedItems, target));
         System.out.println();
     }
 
