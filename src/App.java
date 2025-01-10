@@ -460,6 +460,10 @@ public class App {
         System.out.println("Jump Search");
         System.out.println(search.jumpSearch(sortedItems, target));
         System.out.println();
+
+        System.out.println("Exponential Search");
+        System.out.println(search.exponentialSearch(sortedItems, target));
+        System.out.println();
     }
 
     public static void main(String[] args) throws Exception {

@@ -1,5 +1,7 @@
 package SearchingAlgorithms;
 
+import java.lang.reflect.Array;
+
 public class Search {
 
     public int linearSearch(int[] items, int target) {
@@ -97,5 +99,17 @@ public class Search {
                 return i;
 
         return -1;
+    }
+
+    public int exponentialSearch(int[] items, int target) {
+        int bound = 1;
+
+        while (bound < items.length && items[bound] < target)
+            bound *= 2;
+
+        int left = bound / 2;
+        int right = Math.min(bound, items.length - 1);
+
+        return binarySearchRecursive(items, target, left, right);
     }
 }
