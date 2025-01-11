@@ -18,6 +18,7 @@ import SortingAlgorithms.MergeSort;
 import SortingAlgorithms.QuickSort;
 import SortingAlgorithms.SelectionSort;
 import Stack.Stack;
+import StringManipulationAlgorithms.StringUtils;
 import Tree.Tree;
 import Trie.Trie;
 import java.util.Arrays;
@@ -381,7 +382,7 @@ public class App {
     }
 
     public void runSortingAlgorithms() {
-        int[] array2 = {8, 2, 4, 1, 3};
+        // int[] array2 = {8, 2, 4, 1, 3};
         int[] array = {7, 3, 5, 2, 3, 1, 5, 8};
 
         var items = array.clone();
@@ -466,6 +467,14 @@ public class App {
         System.out.println();
     }
 
+    public void runStringManipulationAlgorithms() {
+        // 1. Vowel Count
+        String word = "hEllo World";
+        int vowelCount = StringUtils.findVowelCount(word);
+        System.out.println("Vowel count of " + word + " is: " + vowelCount);
+
+    }
+
     public static void main(String[] args) throws Exception {
         App app = new App();
 
@@ -482,6 +491,7 @@ public class App {
         // app.runGraph();
         // app.runWeightedGraph();
         // app.runSortingAlgorithms();
-        app.runSearchingAlgorithms();
+        // app.runSearchingAlgorithms();
+        app.runStringManipulationAlgorithms();
     }
 }
