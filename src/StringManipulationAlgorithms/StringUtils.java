@@ -20,4 +20,18 @@ public class StringUtils {
 
         return vowelCount;
     }
+
+    // Q2. Reverse a string
+    // I: "hello"
+    // O: "olleh"
+    public static String reverseString(String word) {
+        if (word == null)
+            return "";
+
+        var reversed = new StringBuilder();
+        for (int i = word.length() - 1; i >= 0; i--)
+            reversed.append(word.charAt(i));
+
+        return reversed.toString();
+    }
 }

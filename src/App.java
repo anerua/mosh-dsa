@@ -468,10 +468,16 @@ public class App {
     }
 
     public void runStringManipulationAlgorithms() {
-        // 1. Vowel Count
         String word = "hEllo World";
+        System.out.println("The word is: " + word);
+        
+        // 1. Vowel Count
         int vowelCount = StringUtils.findVowelCount(word);
-        System.out.println("Vowel count of " + word + " is: " + vowelCount);
+        System.out.println("Vowel count is: " + vowelCount);
+
+        // 2. Reverse String
+        String reversed = StringUtils.reverseString(word);
+        System.out.println("The reversed string is: " + reversed);
 
     }
 
