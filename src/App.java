@@ -468,7 +468,7 @@ public class App {
     }
 
     public void runStringManipulationAlgorithms() {
-        String word = "hEllo World";
+        String word = " Trees are beautiful";
         System.out.println("The word is: " + word);
         
         // 1. Vowel Count
@@ -478,6 +478,10 @@ public class App {
         // 2. Reverse String
         String reversed = StringUtils.reverseString(word);
         System.out.println("The reversed string is: " + reversed);
+
+        // 3. Reverse Words in a Sentence
+        String reversedSentence = StringUtils.reverseSentence(word);
+        System.out.println("The reversed sentence is: " + reversedSentence);
 
     }
 

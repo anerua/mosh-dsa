@@ -1,5 +1,8 @@
 package StringManipulationAlgorithms;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Set;
 
 public class StringUtils {
@@ -33,5 +36,25 @@ public class StringUtils {
             reversed.append(word.charAt(i));
 
         return reversed.toString();
+    }
+
+    // Q3. Reverse the order of words in a sentence
+    // I: "Trees are beautiful"
+    // O: "beautiful are Trees"
+    public static String reverseSentence(String sentence) {
+        if (sentence == null)
+            return "";
+
+        String[] words = sentence.trim().split(" ");
+        Collections.reverse(Arrays.asList(words));
+        return String.join(" ", words);
+
+
+        // Vanilla implementation    
+        // var reversed = new StringBuilder();
+        // for (int i = words.length - 1; i >= 0; i--)
+        //     reversed.append(words[i] + " ");
+
+        // return reversed.toString().trim();
     }
 }
