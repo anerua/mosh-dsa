@@ -483,6 +483,12 @@ public class App {
         String reversedSentence = StringUtils.reverseSentence(word);
         System.out.println("The reversed sentence is: " + reversedSentence);
 
+        // 4. Check if a String is a Rotation of another String
+        String str = "ABCD";
+        String rotatedStr = "DABC";
+        boolean isRotation = StringUtils.isRotation(str, rotatedStr);
+        System.out.println("Is it a rotation?: " + isRotation);
+
     }
 
     public static void main(String[] args) throws Exception {

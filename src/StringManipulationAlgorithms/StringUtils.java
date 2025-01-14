@@ -1,6 +1,5 @@
 package StringManipulationAlgorithms;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Set;
@@ -56,5 +55,45 @@ public class StringUtils {
         //     reversed.append(words[i] + " ");
 
         // return reversed.toString().trim();
+    }
+
+    // Q4. Check if a string is a rotation of another string
+    // ---------------------
+    // I: "ABCD", "DABC"
+    // O: true
+    // ---------------------
+    // I: "ABCD", "ADBC"
+    // O: false
+    public static boolean isRotation(String word, String rotation) {
+        // if (word == null || rotation == null)
+        //     return false;
+
+        // if (word.length() != rotation.length())
+        //     return false;
+
+        // if (word.length() == 0)
+        //     return true;
+
+        // int index2 = rotation.indexOf(word.charAt(0));
+        // if (index2 == -1)
+        //     return false;
+
+        // for (int i = 0; i < word.length(); i++) {
+        //     var ch1 = word.charAt(i);
+        //     var ch2 = rotation.charAt((i + index2) % rotation.length());
+        //     if (ch1 != ch2)
+        //         return false;
+        // }
+
+        // return true;
+
+
+        // Mosh's implementation - Space intensive
+        if (word == null || rotation == null)
+            return false;
+
+        return (word.length() == rotation.length() &&
+                (word + word).contains(rotation));
+
     }
 }
