@@ -489,6 +489,9 @@ public class App {
         boolean isRotation = StringUtils.isRotation(str, rotatedStr);
         System.out.println("Is it a rotation?: " + isRotation);
 
+        // 5. Remove Duplicate Characters in a String
+        String anotherWord = "Hellooo!!";
+        System.out.println("After removing duplicates: " + StringUtils.removeDuplicate(anotherWord));
     }
 
     public static void main(String[] args) throws Exception {

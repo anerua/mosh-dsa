@@ -2,6 +2,7 @@ package StringManipulationAlgorithms;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Set;
 
 public class StringUtils {
@@ -95,5 +96,24 @@ public class StringUtils {
         return (word.length() == rotation.length() &&
                 (word + word).contains(rotation));
 
+    }
+
+    // Q5. Remove duplicate characters in a string
+    // I: "Hellooo!!"
+    // O: "Helo!"
+    public static String removeDuplicate(String word) {
+        if (word == null)
+            return "";
+
+        Set<Character> letters = new HashSet<>();
+        StringBuilder builder = new StringBuilder();
+        for (char c : word.toCharArray()){
+            if (!letters.contains(c)) {
+                builder.append(c);
+                letters.add(c);
+            }
+        }
+
+        return builder.toString();
     }
 }
