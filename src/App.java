@@ -490,8 +490,11 @@ public class App {
         System.out.println("Is it a rotation?: " + isRotation);
 
         // 5. Remove Duplicate Characters in a String
-        String anotherWord = "Hellooo!!";
+        String anotherWord = null;
         System.out.println("After removing duplicates: " + StringUtils.removeDuplicate(anotherWord));
+
+        // 6. Find the Most Repeated Character in a String
+        System.out.println("Most repeated character: " + StringUtils.mostRepeatedCharacter(anotherWord));
     }
 
     public static void main(String[] args) throws Exception {

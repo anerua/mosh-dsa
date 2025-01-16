@@ -2,7 +2,9 @@ package StringManipulationAlgorithms;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 public class StringUtils {
@@ -89,7 +91,7 @@ public class StringUtils {
         // return true;
 
 
-        // Mosh's implementation - Space intensive
+        // Mosh's implementation - Space intensive if word is long
         if (word == null || rotation == null)
             return false;
 
@@ -115,5 +117,31 @@ public class StringUtils {
         }
 
         return builder.toString();
+    }
+
+    // Q6. Find the most repeated character in a string
+    // I: "Hellooo!!"
+    // O: 'o'
+    public static char mostRepeatedCharacter(String word) {
+        if (word == null)
+            return ' ';
+
+        Map<Character, Integer> map = new HashMap<>();
+        for (char c : word.toCharArray()) {
+            if (c == ' ') continue;
+            int count = map.containsKey(c) ? map.get(c) : 0;
+            map.put(c, count + 1);
+        }
+
+        char mostRepeated = ' ';
+        int mostCount = 0;
+        for (var entry : map.entrySet()) {
+            if (entry.getValue() > mostCount) {
+                mostCount = entry.getValue();
+                mostRepeated = entry.getKey();
+            }
+        }
+
+        return mostRepeated;
     }
 }
