@@ -144,4 +144,33 @@ public class StringUtils {
 
         return mostRepeated;
     }
+
+    // Q7. Capitalize the first letter of each word in a sentence. Also, remove any extra spaces between words
+    // ---------------------------
+    // I: "trees are beautiful"
+    // O: "Trees Are Beautiful"
+    // ---------------------------
+    // I: "   trees   are     beautiful  "
+    // O: "Trees Are Beautiful"
+    public static String capitalizeSentence(String sentence) {
+        if (sentence == null)
+            return "";
+        
+        String[] words = sentence.split(" ");
+        StringBuilder builder = new StringBuilder();
+        for (String word : words) {
+            if (!word.equals("")) {
+                builder.append(capitalize(word));
+                builder.append(" ");
+            }
+        }
+
+        return builder.toString().strip();
+    }
+
+    private static String capitalize(String word) {
+        String first = word.substring(0, 1).toUpperCase();
+        String others = word.substring(1).toLowerCase();
+        return first + others;
+    }
 }

@@ -495,6 +495,10 @@ public class App {
 
         // 6. Find the Most Repeated Character in a String
         System.out.println("Most repeated character: " + StringUtils.mostRepeatedCharacter(anotherWord));
+
+        // 7. Capitalize the First Letter of each Word in a Sentence. Also, Remove Any Extra Spaces Between Words
+        String anotherSentence = "  trees     are      beaUtiful  ";
+        System.out.println("Capitalized: '" + StringUtils.capitalizeSentence(anotherSentence) + "'");
     }
 
     public static void main(String[] args) throws Exception {
