@@ -173,4 +173,33 @@ public class StringUtils {
         String others = word.substring(1).toLowerCase();
         return first + others;
     }
+
+    // Q8. Detect if two strings are anagrams of each other. A string is an anagram of another
+    // string if it has the exact same characters in any order
+    // ------------------------
+    // I: "abcd", "adbc"
+    // O: true
+    // ------------------------
+    // I: "abcd", "abce"
+    // O: false
+    public static boolean areAnagrams(String word1, String word2) {
+        if (word1 == null || word2 == null)
+            return false;
+
+        if (word1.length() != word2.length())
+            return false;
+        
+        Map<Character, Integer> map = new HashMap<>();
+        for (char c : word1.toCharArray()) {
+            int count = map.containsKey(c) ? map.get(c) : 0;
+            map.put(c, count + 1);
+        }
+        for (char c : word2.toCharArray()) {
+            if (!map.containsKey(c) || map.get(c) == 0)
+                return false;
+            map.put(c, map.get(c) - 1);
+        }
+
+        return true;
+    }
 }

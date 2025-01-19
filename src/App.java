@@ -499,6 +499,11 @@ public class App {
         // 7. Capitalize the First Letter of each Word in a Sentence. Also, Remove Any Extra Spaces Between Words
         String anotherSentence = "  trees     are      beaUtiful  ";
         System.out.println("Capitalized: '" + StringUtils.capitalizeSentence(anotherSentence) + "'");
+
+        // 8. Detect if Two Strings are Anagrams of Each Other
+        String word1 = null;
+        String word2 = null;
+        System.out.println("They are anagrams: " + StringUtils.areAnagrams(word1, word2));
     }
 
     public static void main(String[] args) throws Exception {
