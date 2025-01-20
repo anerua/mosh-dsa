@@ -202,4 +202,22 @@ public class StringUtils {
 
         return true;
     }
+
+    // Q9. Check if a string is a palindrome
+    // -----------------------
+    // I: "abba"
+    // O: true
+    // -----------------------
+    // I: "abca"
+    // O: false
+    public static boolean isPalindrome(String word) {
+        if (word == null || word.length() == 0)
+            return false;
+
+        for (int i = 0, j = word.length() - 1; j - i > 0; i++, j--)
+            if (word.charAt(i) != word.charAt(j))
+                return false;
+
+        return true;
+    }
 }

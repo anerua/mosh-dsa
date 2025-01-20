@@ -504,6 +504,10 @@ public class App {
         String word1 = null;
         String word2 = null;
         System.out.println("They are anagrams: " + StringUtils.areAnagrams(word1, word2));
+
+        // 9. Check if a String is a Palindrome
+        String palindromeWord = "abcba";
+        System.out.println("The word is a palindrome: " + StringUtils.isPalindrome(palindromeWord));
     }
 
     public static void main(String[] args) throws Exception {
